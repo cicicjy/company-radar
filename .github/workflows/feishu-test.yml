@@ -1,0 +1,36 @@
+name: Feishu notification test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/feishu-test.yml
+
+jobs:
+  send-test-message:
+    runs-on: ubuntu-latest
+    env:
+      FEISHU_BOT_WEBHOOK_URL: ${{ secrets.FEISHU_BOT_WEBHOOK_URL }}
+    steps:
+      - name: Check webhook
+        run: |
+          if [ -z "$FEISHU_BOT_WEBHOOK_URL" ]; then
+            echo "FEISHU_BOT_WEBHOOK_URL is not configured"
+            exit 1
+          fi
+      - name: Send Feishu test message
+        run: |
+          payload=$(cat <<'JSON'
+          {
+            "msg_type": "text",
+            "content": {
+              "text": "外企机会雷达测试消息：飞书提醒链路已连通。接下来监控到新的上海扩张线索时，会往这里发提醒。"
+            }
+          }
+          JSON
+          )
+          curl -sS -X POST "$FEISHU_BOT_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "$payload"
