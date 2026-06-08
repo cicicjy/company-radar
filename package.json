@@ -1,0 +1,12 @@
+{
+  "name": "company-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monitor early expansion signals from foreign companies in Shanghai.",
+  "scripts": {
+    "monitor:leads": "node scripts/monitor-expansion-leads.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
