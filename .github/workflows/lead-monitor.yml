@@ -14,10 +14,10 @@ jobs:
     timeout-minutes: 12
     env:
       LEAD_MIN_SCORE: ${{ vars.LEAD_MIN_SCORE || '62' }}
-      LEAD_PAGE_LIMIT: ${{ vars.LEAD_PAGE_LIMIT || '28' }}
+      LEAD_PAGE_LIMIT: ${{ vars.LEAD_PAGE_LIMIT || '16' }}
       LEAD_CONCURRENCY: ${{ vars.LEAD_CONCURRENCY || '4' }}
       LEAD_TIMEOUT_MS: ${{ vars.LEAD_TIMEOUT_MS || '9000' }}
-      LEAD_TOTAL_CANDIDATE_LIMIT: ${{ vars.LEAD_TOTAL_CANDIDATE_LIMIT || '85' }}
+      LEAD_TOTAL_CANDIDATE_LIMIT: ${{ vars.LEAD_TOTAL_CANDIDATE_LIMIT || '32' }}
       FEISHU_BOT_WEBHOOK_URL: ${{ secrets.FEISHU_BOT_WEBHOOK_URL }}
       FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
       ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}

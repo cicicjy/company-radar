@@ -59,6 +59,11 @@ Optional tuning:
 - `LEAD_TOTAL_CANDIDATE_LIMIT`
 - `LEAD_SEED_URLS`
 
+Recommended defaults for a faster schedule:
+
+- `LEAD_PAGE_LIMIT=16`
+- `LEAD_TOTAL_CANDIDATE_LIMIT=32`
+
 ## Notes
 
 - The first run seeds the cache and normally does not alert on historical items.

@@ -7,9 +7,10 @@ async function main() {
   const minScore = Number(process.env.LEAD_MIN_SCORE || 62);
   const data = await fetchExpansionLeads({
     minScore,
-    pageLimit: Number(process.env.LEAD_PAGE_LIMIT || 28),
+    pageLimit: Number(process.env.LEAD_PAGE_LIMIT || 16),
     timeoutMs: Number(process.env.LEAD_TIMEOUT_MS || 9000),
     concurrency: Number(process.env.LEAD_CONCURRENCY || 4),
+    totalCandidateLimit: Number(process.env.LEAD_TOTAL_CANDIDATE_LIMIT || 32),
   });
 
   const state = await readLeadState();
